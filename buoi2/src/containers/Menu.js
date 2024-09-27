@@ -7,6 +7,7 @@ export default function Menu(props) {
         { link: "/login", content: "Login" },
         { link: "/hello", content: "Hello" },
         { link: "/car", content: "Car" },
+        { link: "/add", content: "Add" },
     ]
 
     const nameUser = props.name
@@ -18,7 +19,7 @@ export default function Menu(props) {
             <div>
                 <Information nameUsers={nameUser} />
             </div>
-            <div className="w-36">
+            <div className="w-64">
                 <ul className="flex w-full justify-between">
                     {renderItem}
                 </ul>
