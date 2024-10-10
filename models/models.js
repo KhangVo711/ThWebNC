@@ -5,8 +5,16 @@ const getAllUser = async () => {
     return rows
 }
 const addUser = async (username, password, fullname, address, sex, email) => {
-    await pool.execute('INSERT INTO `users` (`username`, `password`, `fullname`, `address`, `sex`, `email`) VALUES (?, ?, ?, ?, ?, ?)', [username, password, fullname, address, sex, email])
+    await pool.execute('INSERT INTO users (username, password, fullname, address, sex, email) VALUES (?, ?, ?, ?, ?, ?)', [username, password, fullname, address, sex, email]);
+   
+};
+const updateUser = async (username, password, fullname, address, sex, email) => {
+    await pool.execute('UPDATE users SET password = ?, fullname = ?, address = ?, sex = ?, email = ? WHERE username = ?', [password, fullname, address, sex, email, username]);
+};
 
-}
+const deleteUser = async (userName) => {
+    await pool.execute('DELETE FROM users WHERE username = ?', [userName]);
+};
 
-export default { getAllUser, addUser}
+
+export default { getAllUser, addUser, deleteUser, updateUser}

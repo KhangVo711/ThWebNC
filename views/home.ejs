@@ -11,13 +11,13 @@
     <div class="container">
         <%- include('header') %>
     
-        <!-- <% if (url === "/home" || url === "/") { %> -->
+        <% if (url === "/") { %>
         <%- include('main') %>
-        <!-- <% } else if (url === "/about") { %>
+        <% } if (url === "/about") { %>
             <%- include('about') %>
-        <% } else if (url === "/contact") { %>
+        <% } if (url === "/contact") { %>
             <%- include('contact') %>
-        <% } %> -->
+        <% } %>
     
         <%- include('footer') %>
         
