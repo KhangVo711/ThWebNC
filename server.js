@@ -1,17 +1,21 @@
 import express from 'express'
 import dotenv from 'dotenv/config'
-
+import bodyParser from 'body-parser';
 import getURL from "./getURL";
-
+// import json from 'json'
 import date from "./date";
-
+import path from 'path';
 import viewEnine from "./viewEngine";
+import webRouter from './webRoute';
 
 
 const app = express()
 const port = process.env.PORT
+app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')))
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 viewEnine(app)
-
+webRouter(app)
 // app.get('/', (req, res) => {
 //     res.send('Hello World!')
 // })
@@ -29,17 +33,17 @@ viewEnine(app)
 //     // res.render(getURL.getParamsURL(req) + "<br>");
 // })
 
-app.get('/ejs', (req, res) => {
-    res.render("test")
-})
+// app.get('/ejs', (req, res) => {
+//     res.render("test")
+// })
 
-app.get('/', (req, res) => {
-    res.render("home")
-})
+// app.get('/', (req, res) => {
+//     res.render("home")
+// })
 
-app.get('/about', (req, res) => {
-    res.render("about")
-})
+// app.get('/about', (req, res) => {
+//     res.render("about")
+// })
 
 
 app.listen(port, () => {
