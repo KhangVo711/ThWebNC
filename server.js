@@ -3,6 +3,7 @@ import dotenv from 'dotenv/config'
 import bodyParser from 'body-parser';
 import getURL from "./getURL";
 // import json from 'json'
+import cors from 'cors';
 import date from "./date";
 import path from 'path';
 import viewEnine from "./viewEngine";
@@ -12,6 +13,8 @@ import webRouter from './webRoute';
 const app = express()
 const port = process.env.PORT
 app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')))
+app.use(cors({origin: ['http://localhost:3000'] , optionsSuccessStatus: 200, credentials: true}));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 viewEnine(app)

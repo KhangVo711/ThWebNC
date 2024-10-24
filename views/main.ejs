@@ -5,6 +5,7 @@
         <th scope="col">Stt</th>
         <th scope="col">Username</th>
         <th scope="col">Fullname</th>
+        <th scope="col">Role</th>
         <th scope="col">Address</th>
         <!-- <th scope="col">Sex</th>
         <th scope="col">Email</th> -->
@@ -17,6 +18,7 @@
             <th scope="row"><%= i + 1 %></th>
             <td><%= data.rows[i].username %></td>
             <td><%= data.rows[i].fullname %></td>
+            <td><%= data.rows[i].role %></td>
             <td><%= data.rows[i].address %></td>
             <!-- <td><%= data.rows[i].sex %></td>
             <td><%= data.rows[i].email %></td> -->
@@ -36,6 +38,7 @@
   <thead>
       <tr>
         <th scope="col">Username</th>
+        <th scope="col">Role</th>
         <th scope="col">Password</th>
         <th scope="col">Fullname</th>
         <th scope="col">Address</th>
@@ -46,6 +49,7 @@
   <tbody class="table-group-divider">
       <tr>
           <td><%= data.rows[i].username %></td>
+          <td><%= data.rows[i].role %></td>
           <td><%= data.rows[i].password %></td>
           <td><%= data.rows[i].fullname %></td>
           <td><%= data.rows[i].address %></td>
@@ -62,6 +66,10 @@
       <label for="username" class="form-label">Username</label>
       <input type="text" class="form-control" name="username" id="username" aria-describedby="emailHelp">
       <input name="action" id="action" type="hidden" value="add">
+    </div>
+    <div class="mb-3">
+      <label for="role" class="form-label">Role</label>
+      <input type="text" class="form-control" name="role" id="role">
     </div>
     <div class="mb-3">
       <label for="password" class="form-label">Password</label>
@@ -96,9 +104,11 @@
         <input type="hidden" class="form-control" name="username" value="<%= data.rows[i].username %>">
         <p class="form-control" name="username"><%= data.rows[i].username %></p>
         <input name="action" id="action" type="hidden" value="edit">
-
-
       </div>
+      <div class="mb-3">
+        <label for="role" class="form-label">Role</label>
+        <input type="text" class="form-control" name="role" value="<%= data.rows[i].role %>">
+    </div>
       <div class="mb-3">
         <label for="password" class="form-label">Password</label>
         <input type="password" class="form-control" name="password" value="<%= data.rows[i].password %>">

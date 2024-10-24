@@ -2,6 +2,7 @@ import express from 'express'
 import main from './controller/HomeController.js'
 import about from './controller/AboutController.js'
 import contact from './controller/ContactController.js'
+import auth from './controller/AuthController.js'
 
 const router = express.Router()
 const webRouter = (app) => {
@@ -11,6 +12,10 @@ const webRouter = (app) => {
     router.delete('/delete-user/:username', main.getMain)
     router.get('/about', about.getAbout)
     router.get('/contact', contact.getContact)
+
+    // API
+    router.post('/login', auth.loginUser);
+
 
     return app.use('/', router)
 }
