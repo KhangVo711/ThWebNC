@@ -8,7 +8,8 @@ import date from "./date";
 import path from 'path';
 import viewEnine from "./viewEngine";
 import webRouter from './webRoute';
-
+import JWT from './middleware/jwt';
+import cookieParser from 'cookie-parser'
 
 const app = express()
 const port = process.env.PORT
@@ -17,6 +18,11 @@ app.use(cors({origin: ['http://localhost:3000'] , optionsSuccessStatus: 200, cre
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cookieParser())
+JWT.createJWT()
+JWT.verifyToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmb28iOiJiYXIiLCJpYXQiOjE2OTQ5NTI3MDR9.F2gqx9CLPDA5DGJiFEdrMhSA_f9X9TgZrX9zyzWHA4Q')
+
+
 viewEnine(app)
 webRouter(app)
 // app.get('/', (req, res) => {

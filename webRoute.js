@@ -15,6 +15,7 @@ const webRouter = (app) => {
 
     // API
     router.post('/login', auth.loginUser);
+    router.post('/register', auth.registerUser);
 
 
     return app.use('/', router)
