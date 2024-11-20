@@ -1,6 +1,6 @@
 import userModel from '../models/models.js'
 import bcrypt from 'bcrypt';
-import userModelsql from '../models/userModel.js';
+import userModelsql from '../models/userModel.js';  
 
 const getHome = async (req, res) => {
     let userList = await userModel.getAllUser()

@@ -3,6 +3,7 @@ import main from './controller/HomeController.js'
 import about from './controller/AboutController.js'
 import contact from './controller/ContactController.js'
 import auth from './controller/AuthController.js'
+import product from './controller/ProductController.js'
 
 const router = express.Router()
 const webRouter = (app) => {
@@ -16,6 +17,10 @@ const webRouter = (app) => {
     // API
     router.post('/login', auth.loginUser);
     router.post('/register', auth.registerUser);
+    
+    router.get('/type', product.getAllProductType);
+    router.get('/product', product.getAllProduct);
+    router.get('/detailProduct', product.detailProduct);
 
 
     return app.use('/', router)
